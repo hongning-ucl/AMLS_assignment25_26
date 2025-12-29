@@ -136,13 +136,13 @@ def run_model_B():
  
     for epochs in epoch_list:
 
-        print("\nTraining SimpleCNN (no augmentation),epochs={epochs}")
+        print(f"\nTraining SimpleCNN (no augmentation),epochs={epochs}")
         model_plain = SimpleCNN()
         history_plain = train_cnn(model_plain, train_loader_plain, val_loader, epochs=epochs)
         metrics_plain = evaluate_cnn(model_plain, test_loader)
         f1_no_aug.append(metrics_plain["f1"])
 
-        print("\nTraining SimpleCNN (with augmentation),epochs={epochs}")
+        print(f"\nTraining SimpleCNN (with augmentation),epochs={epochs}")
         model_aug = SimpleCNN()
         history_aug=train_cnn(model_aug, train_loader_aug, val_loader, epochs=epochs)
         metrics_aug = evaluate_cnn(model_aug, test_loader)
@@ -224,7 +224,6 @@ def run_model_complexity_analysis():
         print(f"{model_name} parameters: {param_count:,}")
 
     return complexity
-import matplotlib.pyplot as plt
 
 def plot_model_complexity(complexity_dict, save_path="fig_model_complexity.png"):
     """
@@ -279,12 +278,12 @@ if __name__ == "__main__":
 
     histories = results_B["train_val_histories"]
 
-plot_train_val_loss(
-    histories["plain"],
-    save_path="fig_train_val_loss_plain.png"
-)
+    plot_train_val_loss(
+        histories["plain"],
+        save_path="fig_train_val_loss_plain.png"
+    )
 
-plot_train_val_loss(
-    histories["aug"],
-    save_path="fig_train_val_loss_aug.png"
-)
+    plot_train_val_loss(
+        histories["aug"],
+        save_path="fig_train_val_loss_aug.png"
+    )
