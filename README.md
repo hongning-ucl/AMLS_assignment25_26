@@ -37,7 +37,32 @@ AMLS_25_26_SN24100833/
 The following augmentation techniques are applied where appropriate:
 - Random rotations and flips
 - Intensity-based transformations (e.g. noise or contrast adjustments)
+--
 
+### Python Version
+- Python >= 3.9  
+- Tested with Python 3.10
+---
 
+### Required Packages
+- numpy  
+- scipy  
+- pandas  
+- scikit-learn  
+- matplotlib  
+- torch  
+- torchvision  
+- torchaudio  
+- medmnist  
+---
+
+### (Example)
 ```bash
+conda env create -f environment.yml
+conda activate amls-final
 python main.py
+
+### Dataset split strategy for CNN models:
+- Official MedMNIST training split (~70%) is used for model training
+- A small validation subset is created from the training data and used only for overfitting analysis (train vs validation loss)
+- The official MedMNIST test split (~30%) is used exclusively for final evaluation (Accuracy, Precision, Recall, F1)
