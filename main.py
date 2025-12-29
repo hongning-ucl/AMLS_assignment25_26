@@ -2,7 +2,7 @@
 import torch
 import numpy as np
 import random
-
+import matplotlib.pyplot as plt
 from medmnist import BreastMNIST
 from torchvision import transforms
 from torch.utils.data import DataLoader,random_split
